@@ -1,0 +1,41 @@
+# =============================================================================
+# .gitignore — ChargeGrid AI Assistant (Sprint 03)
+# =============================================================================
+# Criado na revisão da Sprint 03: o README e o .env.example já afirmavam que
+# ".env está no .gitignore", mas o arquivo não existia no repositório — ou
+# seja, nada impedia um commit acidental da OLLAMA_API_KEY. O PDF do
+# Challenge é explícito: "Sem API key no histórico [...] Exposição implica
+# penalidade" (seção 10).
+# =============================================================================
+
+# Segredos / variáveis de ambiente — NUNCA versionar
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Caches de ferramentas
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Observação: evals/sprint3_results.json, evals/resultados_comparacao_modelos.json
+# e prompts/tokens_resultado.json são evidência real do projeto (exigida pelo
+# PDF do Challenge, seção 8) e devem continuar VERSIONADOS — não ignorá-los.

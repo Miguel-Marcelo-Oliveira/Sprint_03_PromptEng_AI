@@ -1,0 +1,48 @@
+# =============================================================================
+# requirements.txt — bibliotecas necessárias para rodar o projeto (Sprint 03)
+# =============================================================================
+#
+# Para instalar tudo de uma vez, execute no terminal:
+#   pip install -r requirements.txt
+#
+# Sprint 03 trocou o núcleo conversacional de chamadas manuais à API da Groq
+# para uma chain LangChain LCEL rodando 100% no Ollama Cloud (sem custo,
+# sem modelo local). Por isso:
+#   - "groq" saiu (não é mais usado em lugar nenhum do core novo).
+#   - "numpy" e "sentence-transformers" (usados só pelo rag.py da Sprint 02)
+#     também saíram daqui: RAG está fora do escopo desta sprint (ver PDF do
+#     Challenge, seção 3) e o sentence-transformers roda um modelo local,
+#     o que conflita com a exigência de só usar modelos via Ollama Cloud.
+#     Se quiser continuar rodando o rag.py antigo, reinstale-os à parte.
+#
+# =============================================================================
+
+python-dotenv>=1.0.0
+
+# LangChain LCEL (Aula 01) + integração com Ollama Cloud
+# Observação: "langchain-classic" (ConversationChain, ConversationBufferMemory,
+# ConversationTokenBufferMemory) NÃO é usado aqui de propósito — são classes
+# deprecadas e ConversationTokenBufferMemory não é compatível com a interface
+# que RunnableWithMessageHistory espera (BaseChatMessageHistory). A memória
+# por sessão com limite de tokens foi implementada em src/chain/memoria.py
+# com o padrão moderno (ver docs/relatorio_evolucao, seção "Problemas e
+# soluções").
+#
+# Versões mínimas, sem pin exato: o ambiente onde este projeto foi montado
+# não tinha acesso à internet para conferir os números de versão mais
+# recentes no PyPI. Rode `pip install -r requirements.txt` normalmente —
+# ele vai buscar a versão estável mais nova de cada pacote.
+langchain-core>=0.3.0
+langchain-ollama>=0.3.0
+
+# Structured output (Aula 03)
+pydantic>=2.7.0
+
+# Medição de tokens / context engineering (Aula 04)
+tiktoken>=0.7.0
+
+# Geração do PDF do relatório de evolução (docs/gerar_relatorio_evolucao.py).
+# Não é usado pelo chatbot em si (chatbot.py, evals/), só por esse script —
+# mas fica aqui porque "pip install -r requirements.txt" deve deixar o
+# projeto inteiro pronto para rodar, incluindo a geração do relatório.
+reportlab>=4.0.0

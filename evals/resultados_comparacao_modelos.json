@@ -1,0 +1,43 @@
+{
+  "parametros": {
+    "temperature": 0.3,
+    "num_predict": 512,
+    "top_p": 0.95
+  },
+  "modelos": {
+    "gpt-oss:120b": [
+      {
+        "pergunta": "Quantas sessões estão ativas agora e qual o consumo total hoje?",
+        "resposta": "Atualmente há **3 sessões ativas**.\n\nO consumo total registrado hoje é de **47,3 kWh**.\n\n⚠️ **Alerta ativo:** a Estação 2 apresenta um alerta de sobretensão (detectado às 14h10) e está com novas sessões bloqueadas via OCPP. Recomendo verificar o equipamento e, se necessário, acionar a manutenção para restaurar a operação normal.",
+        "latencia_s": 0.94
+      },
+      {
+        "pergunta": "A demanda atual está próxima do limite? Devo me preocupar?",
+        "resposta": "A demanda atual está em **28,5 kW**, enquanto o limite contratado é de **35,0 kW**. Portanto, ainda há uma margem de **6,5 kW** antes de atingir o limite.\n\nEntretanto, a IA prevê um pico de **33,2 kW** por volta das **18h30**, o que deixaria apenas **1,8 kW** de folga. Por esse motivo, a recomendação da IA é **limitar a abertura de novas sessões a partir das 18h** para evitar ultrapassar o contrato.\n\nAlém disso, há um alerta ativo na **Estação 2** (sobretensão detectada às 14h10). As novas sessões já foram bloqueadas via OCPP. Recomendo:\n\n1. **Verificar o equipamento da Estação 2** (cabos, conectores e o próprio HCA G2) para identificar a causa da sobretensão.  \n2. **Realizar a manutenção ou substituição necessária** com um eletricista credenciado.  \n3. **Reavaliar a liberação de sessões** na Estação 2 somente após a correção e a confirmação de que o alerta foi resolvido.\n\nEnquanto o alerta não for sanado e o pico previsto se aproximar, mantenha o controle de novas sessões conforme a recomendação da IA para garantir que a demanda não ultrapasse o limite contratado.",
+        "latencia_s": 1.56
+      },
+      {
+        "pergunta": "Tem algum problema nas estações agora?",
+        "resposta": "**Situação das estações neste momento**\n\n- **Estação 1** – Operacional (GoodWe HCA G2 22 kW) – 18,2 kWh consumidos hoje.  \n- **Estação 2** – **Falha** (GoodWe HCA G2 11 kW) – 9,4 kWh consumidos hoje.  \n- **Estação 3** – Operacional (GoodWe HCA G2 7 kW) – 19,7 kWh consumidos hoje.\n\n**Alerta ativo**\n\n- **Estação 2:** Alerta de **sobretensão** detectado às 14h10. Por causa disso, novas sessões foram bloqueadas automaticamente via protocolo OCPP.\n\n**Ação corretiva recomendada**\n\n1. Verifique a causa da sobretensão (possível problema na rede de alimentação ou no próprio equipamento).  \n2. Solicite a inspeção de um eletricista credenciado para analisar a estação e corrigir a anomalia.  \n3. Após a correção, reative a estação através do console OCPP ou solicite ao suporte técnico que libere novamente as sessões.\n\nAs demais estações (1 e 3) encontram‑se operacionais e continuam atendendo sessões normalmente.",
+        "latencia_s": 1.91
+      }
+    ],
+    "nemotron-3-nano:30b": [
+      {
+        "pergunta": "Quantas sessões estão ativas agora e qual o consumo total hoje?",
+        "resposta": "Atualmente há **3 sessões ativas** e o **consumo total hoje é de 47,3 kWh**.",
+        "latencia_s": 29.04
+      },
+      {
+        "pergunta": "A demanda atual está próxima do limite? Devo me preocupar?",
+        "resposta": "A demanda atual está em **28,5 kW**, enquanto o limite contratado é **35,0 kW**. Isso representa cerca de **81 %** do seu contrato, portanto está próximo, mas ainda dentro do limite.\n\nContudo, a previsão da IA indica que a demanda deve alcançar **33,2 kW às 18h30**, o que ultrapassaria **95 %** do limite e se aproximaria do seu teto contratual. Além disso, há um **alerta de Sobretensão** na Estação 2 registrado às 14h10, com bloqueio de novas sessões a partir das 18h via OCPP.\n\n**Recomendação operacional:**  \n- Monitore de perto a demanda nos próximos períodos, especialmente entre 18h e 19h.  \n- Considere limitar ou adiar novas sessões de carregamento a partir das 18h para evitar ultrapassar o limite contratado.  \n- Avalie redistribuir parte do carregamento para períodos fora do pico (fora de 18h‑21h) ou para as estações que estão operacionais (Estação 1 e Estação 3).  \n\nEssas medidas ajudam a manter a operação dentro dos limites contratuais e a evitar possíveis interrupções provocadas pelo alerta de sobretensão. Caso a demanda continue crescendo de forma sustentada, será necessário reavaliar o contrato de potência ou a estratégia de uso das estações.",
+        "latencia_s": 23.62
+      },
+      {
+        "pergunta": "Tem algum problema nas estações agora?",
+        "resposta": "Sim. Há um alerta ativo na **Estação 2** – foi registrado sobretensão às 14h10 e, por isso, novas sessões estão sendo bloqueadas via OCPP. As demais estações (1 e 3) estão operacionais.\n\n**Sugestão imediata:**  \n- Verifique o status da Estação 2 no painel de controle.  \n- Se o alerta persistir, reinicie o equipamento ou acione o suporte técnico para inspeção do módulo de potência.  \n\nCaso precise de mais detalhes ou de acompanhamento, avise.",
+        "latencia_s": 15.72
+      }
+    ]
+  }
+}
