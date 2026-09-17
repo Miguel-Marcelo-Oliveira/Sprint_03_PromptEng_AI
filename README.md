@@ -32,7 +32,6 @@ chargegrid-assistant/
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore                     # protege .env — nunca versionar a API key
-├── INTEGRANTES.txt                # nome + RM + turma (entrega, PDF seção 10)
 ├── prompts/
 │   ├── system_prompt_v1.md        # baseline (Sprints 1/2), sem XML tagging
 │   ├── system_prompt_v2.md        # usado pela chain — XML tagging (Aula 04)
